@@ -25,6 +25,7 @@ export default new Router({
     {
       path: "/login",
       component: LogIn
-    }
-  ]
+    },
+  ],
+  linkActiveClass: 'is-active' /* Bulma's active nav link */
 });
