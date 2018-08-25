@@ -23,7 +23,7 @@
         </form>
         </div>
         <div class="column">
-          Don't have an account? 
+          Don't have a Bitesize account? 
           <a href="https://www.bitesize.irish/try">Take a free trial.</a>
         </div>
       </div>
