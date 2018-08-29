@@ -51,11 +51,15 @@ export default {
     checkForm() {
       const credentials = {
         email: this.email,
-        password: this.password
+        password: this.password,
+        type: "password"
       };
       this.$store
         .dispatch("login", credentials)
-        .then(() => this.$router.push("/"))
+        .then(() => {
+          console.log("hi");
+          this.$router.push("/");
+        })
         .catch(err => console.log(err));
     }
   }

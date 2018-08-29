@@ -27,16 +27,27 @@ export default new Vuex.Store({
       state.status = 'success';
       state.token = token;
       state.user = user;
+    },
+    [AUTH_FAILED](state) {
+      state.status = 'failed';
     }
   },
   actions: {
-      login({commit}, credentials) {
-      commit(AUTH_PENDING);
-      api.post("/auth/token", credentials)
-      .then(response => {
-        commit(AUTH_SUCCESS, response.data.token, response.data.user);
-      })
-      .catch(console.log("Error!"));
+    login({ commit }, credentials) {
+      return new Promise((resolve, reject) => {
+        commit(AUTH_PENDING);
+        api.post("/auth/token", credentials)
+          .then(response => {
+            commit(AUTH_SUCCESS, response.data.token, response.data.user);
+            resolve();
+          })
+          .catch(error => {
+            console.log("Error!", error);
+            commit(AUTH_FAILED);
+            reject(error);
+          });
+        }
+      );
     }
   },
   strict: debug
