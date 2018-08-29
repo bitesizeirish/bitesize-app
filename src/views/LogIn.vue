@@ -43,20 +43,21 @@
 export default {
   data() {
     return {
-      email: '',
-      password: ''
+      email: "",
+      password: ""
     };
   },
   methods: {
     checkForm() {
       const credentials = {
         email: this.email,
-        password: this.password,
+        password: this.password
       };
-      this.$store.dispatch('login', credentials)
-        .then(() => this.$router.push('/'))
+      this.$store
+        .dispatch("login", credentials)
+        .then(() => this.$router.push("/"))
         .catch(err => console.log(err));
-    },
+    }
   }
-}
+};
 </script>
