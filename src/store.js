@@ -28,10 +28,10 @@ export default new Vuex.Store({
     [AUTH_PENDING](state) {
       state.status = "pending";
     },
-    [AUTH_SUCCESS](state, token, user) {
+    [AUTH_SUCCESS](state, data) {
       state.status = "success";
-      state.token = token;
-      state.user = user;
+      state.token = data.jti;
+      state.user = data.data;
     },
     [AUTH_FAILED](state) {
       state.status = "failed";
@@ -44,7 +44,7 @@ export default new Vuex.Store({
         api
           .post("/auth/token", credentials)
           .then(response => {
-            commit(AUTH_SUCCESS, response.data.token, response.data.user);
+            commit(AUTH_SUCCESS, response.data);
             resolve();
           })
           .catch(error => {
