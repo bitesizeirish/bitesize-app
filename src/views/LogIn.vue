@@ -25,8 +25,21 @@
               </div>
             </div>
           
-            <div class="control">
-              <button class="button is-link">Submit</button>
+            <div v-if="error">
+              <div class="field">
+                <div class="control notification is-warning">
+                  There was a problem with your email or password. Please try entering them again and re-submitting.
+                  If you're stuck, do please 
+                  <router-link to="/contact">contact us</router-link>.
+                </div>
+              </div>
+              <br>
+            </div>
+
+            <div class="field">
+              <div class="control">
+                <button class="button is-link">Submit</button>
+              </div>
             </div>
         </form>
         </div>
@@ -44,7 +57,8 @@ export default {
   data() {
     return {
       email: "",
-      password: ""
+      password: "",
+      error: false
     };
   },
   methods: {
@@ -60,7 +74,10 @@ export default {
           console.log("hi");
           this.$router.push("/");
         })
-        .catch(err => console.log(err));
+        .catch(err => {
+          console.log("hyup", err);
+          this.error = true;
+        });
     }
   }
 };

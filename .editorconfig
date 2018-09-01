@@ -2,6 +2,7 @@
 
 # top-most EditorConfig file
 root = true
+trim_trailing_whitespace = true
 
 # Indentation override for all JS under lib directory
 [src/**.js]
