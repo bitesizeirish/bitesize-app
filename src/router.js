@@ -2,6 +2,7 @@ import Vue from "vue";
 import Router from "vue-router";
 import Home from "./views/Home.vue";
 import LogIn from "./views/LogIn.vue";
+import LearningDashboard from "./views/LearningDashboard.vue";
 
 Vue.use(Router);
 
@@ -25,6 +26,10 @@ export default new Router({
     {
       path: "/login",
       component: LogIn
+    },
+    {
+      path: "/dashboard",
+      component: LearningDashboard
     }
   ],
   linkActiveClass: "is-active" /* Bulma's active nav link */

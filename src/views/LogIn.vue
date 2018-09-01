@@ -71,11 +71,9 @@ export default {
       this.$store
         .dispatch("login", credentials)
         .then(() => {
-          console.log("hi");
-          this.$router.push("/");
+          this.$router.push("/dashboard");
         })
-        .catch(err => {
-          console.log("hyup", err);
+        .catch(() => {
           this.error = true;
         });
     }
