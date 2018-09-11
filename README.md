@@ -26,3 +26,8 @@ npm run lint
 ```
 npm run test:unit
 ```
+
+## Deploying
+
+Use the plugin installed:
+<https://www.npmjs.com/package/vue-cli-plugin-s3-deploy>
