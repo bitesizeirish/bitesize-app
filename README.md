@@ -1,5 +1,7 @@
 # bitesize-app
 
+*Abandoned project, it was fun while it lasted!*
+
 Irish language learning app, to be available at https://bitesize.app
 
 ## Project setup
